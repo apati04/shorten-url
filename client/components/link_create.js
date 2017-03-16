@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
 class LinkCreate extends Component {
+  handleSumbit(e) {
+    e.preventDefault();
+    console.log(this.refs.input.value);
+  }
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSumbit.bind(this)}>
         <div className="form-group">
           <label>Link to Shorten</label>
-          <input className="form-control" />
+          <input ref="input" className="form-control" />
         </div>
         <button className="btn btn-primary">Shorten!</button>
       </form>
